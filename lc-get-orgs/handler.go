@@ -26,6 +26,7 @@ package function
 import (
 	"database/sql"
 	"encoding/json"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -72,6 +73,18 @@ func init() {
 
 // Handle a HTTP request as a middleware processor.
 func Handle(w http.ResponseWriter, r *http.Request) {
+
+	log.Printf("GET params were: %s", r.URL.Query())
+
+	u := r.URL
+	log.Printf("Path: %s", u.Path)
+	log.Printf("RawPath: %s", u.RawPath)
+	log.Printf("EscapedPath: %s", u.EscapedPath())
+
+	defer r.Body.Close()
+	body, _ := ioutil.ReadAll(r.Body)
+
+	log.Printf("Request body: %s", body)
 
 	rows, getErr := db.Query(`select * from orgs;`)
 
