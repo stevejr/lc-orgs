@@ -10,16 +10,12 @@
   version = "1.2"
 
 [[projects]]
-  digest = "1:d27eedd7296593e6ea74aed67aa0d04d97305c860209b0d4996a8aa2eac7fd0b"
-  name = "github.com/lib/pq"
-  packages = [
-    ".",
-    "oid",
-    "scram",
-  ]
+  digest = "1:a3af33fd30536d9c5a7b6ad542390919e57c1125097a194c7b3d9904109a0611"
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
   pruneopts = "UT"
-  revision = "e7751f584844fbf92a5a18b13a0af1c855e34460"
-  version = "v1.8.0"
+  revision = "17ef3dd9d98b69acec3e85878995ada9533a9370"
+  version = "v1.5.0"
 
 [[projects]]
   digest = "1:640b3b23db9a5542f998adcf5ca3527951855f93156784dd9592242a61b89598"
@@ -49,7 +45,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/lib/pq",
+    "github.com/go-sql-driver/mysql",
     "github.com/openfaas/openfaas-cloud/sdk",
     "github.com/pkg/errors",
   ]

@@ -1,19 +1,18 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://127.0.0.1:8080
+  gateway: https://openfaas.lc.lcmvp.dockerps.io
 functions:
   lc-get-orgs:
     lang: golang-middleware
     handler: ./lc-get-orgs
     image: dockerps/lc-get-orgs:latest
     environment:
-      postgres_db: postgres
-      postgres_port: 5432
-      postgres_sslmode: disable
+      mysql_db: lc_orgs
+      mysql_port: 3306
       allow_cors: "*"
       write_debug: true
     secrets:
-      - postgres-host
-      - postgres-username
-      - postgres-password
+      - mysql-host
+      - mysql-username
+      - mysql-password
